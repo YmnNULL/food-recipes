@@ -1,0 +1,37 @@
+<app-spinner [show]="hideSpinner"></app-spinner>
+<div class="container my-5">
+    <div class="card shadow-lg">
+        <div class="row g-0">
+            <div class="col-md-5">
+                <img [src]="specialDishData().image_url" [alt]="specialDishData().title"
+                    class="img-fluid rounded-start w-100 h-100 object-fit-cover">
+            </div>
+
+            <div class="col-md-7">
+                <div class="card-body p-4 h-100 d-flex flex-column justify-content-center">
+                    <h2 class="card-title mb-3">{{ specialDishData().title }}</h2>
+
+                    <p class="text-muted mb-2">
+                        Published by
+                        <a [href]="specialDishData().publisher_url" target="_blank" class="text-decoration-none">
+                            {{ specialDishData().publisher }}
+                        </a>
+                    </p>
+
+                    <h5 class="mt-4">Ingredients:</h5>
+                    <ul class="list-group list-group-flush mb-3">
+                        @for (item of specialDishData().ingredients; track $index) {
+                        <li class="list-group-item">
+                            {{ item }}
+                        </li>
+                        }
+                    </ul>
+
+                    <a [href]="specialDishData().source_url" target="_blank" class="btn btn-primary mt-3">
+                        View Full Recipes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

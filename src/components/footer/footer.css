@@ -1,0 +1,14 @@
+footer a:hover {
+    color: #28a745 !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+
+footer h5,
+footer h6 {
+    color: #28a745;
+    /* عنوان أخضر */
+}

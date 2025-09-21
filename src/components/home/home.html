@@ -1,0 +1,173 @@
+<section class="hero d-flex align-items-center justify-content-center text-center">
+    <div class="content w-75">
+        <h1 class="fw-bold">
+            Discover Delicious Recipes Everyday
+        </h1>
+        <p class="lead mt-3">
+            Explore easy-to-make meals, healthy options, and tasty treats — all in one place.
+        </p>
+
+        <a routerLink="/foods" class="btn btn-success btn-lg mt-3">
+            Explore Foods
+        </a>
+    </div>
+</section>
+
+<section class="categories py-5 text-center bg-body-secondary">
+    <div class="container">
+        <div>
+            <h2 class="text-center text-dark mb-5 fw-bold">Browse by Categories</h2>
+        </div>
+
+        <ul class="nav nav-pills justify-content-center mb-5" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link p-2 px-md-3 position-relative active" id="pills-Vegetables-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-Vegetables" type="button" role="tab"
+                    aria-controls="pills-Vegetables" aria-selected="true">Vegetables</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link p-2 px-md-3 position-relative" id="pills-Fruits-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-Fruits" type="button" role="tab" aria-controls="pills-Fruits"
+                    aria-selected="false">Fruits</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link p-2 px-md-3 position-relative" id="pills-herbsSpices-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-herbsSpices" type="button" role="tab" aria-controls="pills-herbsSpices"
+                    aria-selected="false">Herbs & Spices</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link p-2 px-md-3 position-relative" id="pills-Legumes-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-Legumes" type="button" role="tab" aria-controls="pills-Legumes"
+                    aria-selected="false">Legumes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link p-2 px-md-3 position-relative" id="pills-Dishes-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-Dishes" type="button" role="tab" aria-controls="pills-Dishes"
+                    aria-selected="false">Dishes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link p-2 px-md-3 position-relative" id="pills-Meats-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-Meats" type="button" role="tab" aria-controls="pills-Meats"
+                    aria-selected="false">Meats</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-Vegetables" role="tabpanel"
+                aria-labelledby="pills-Vegetables-tab" tabindex="0">
+                <div class="row g-4">
+                    @for (category of Food.vegetables; track $index) {
+                    <div class="col-md-4 col-sm-6 col-lg-3">
+                        <div class="card py-3 text-center shadow h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-capitalize">{{ category }}</h5>
+                                <i [class]="getIcon(category) + ' fa-2x mb-3 text-success'"></i>
+                                <p class="text-muted">{{ category }} items</p>
+                                <a class="btn btn-outline-success btn-sm"
+                                    [routerLink]="['/specificFood', category]">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="pills-Fruits" role="tabpanel" aria-labelledby="pills-Fruits-tab"
+                tabindex="0">
+
+                <div class="row g-4">
+                    @for (category of Food.fruits; track $index) {
+                    <div class="col-md-4 col-sm-6 col-lg-3">
+                        <div class="card py-3 text-center shadow h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-capitalize">{{ category }}</h5>
+                                <i [class]="getIcon(category) + ' fa-2x mb-3 text-success'"></i>
+                                <p class="text-muted">{{ category }} items</p>
+                                <a class="btn btn-outline-success btn-sm"
+                                    [routerLink]="['/specificFood', category]">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="pills-herbsSpices" role="tabpanel" aria-labelledby="pills-herbsSpices-tab"
+                tabindex="0">
+                <div class="row g-4">
+                    @for (category of Food.herbsSpices; track $index) {
+                    <div class="col-md-4 col-sm-6 col-lg-3">
+                        <div class="card py-3 text-center shadow h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-capitalize">{{ category }}</h5>
+                                <i [class]="getIcon(category) + ' fa-2x mb-3 text-success'"></i>
+                                <p class="text-muted">Herbs & Spices items</p>
+                                <a class="btn btn-outline-success btn-sm"
+                                    [routerLink]="['/specificFood', category]">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-Legumes" role="tabpanel" aria-labelledby="pills-Legumes-tab"
+                tabindex="0">
+
+                <div class="row g-4">
+                    @for (category of Food.legumes; track $index) {
+                    <div class="col-md-4 col-sm-6 col-lg-3">
+                        <div class="card py-3 text-center shadow h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-capitalize">{{ category }}</h5>
+                                <i [class]="getIcon(category) + ' fa-2x mb-3 text-success'"></i>
+                                <p class="text-muted">{{ category }} items</p>
+                                <a class="btn btn-outline-success btn-sm"
+                                    [routerLink]="['/specificFood', category]">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="pills-Dishes" role="tabpanel" aria-labelledby="pills-Dishes-tab"
+                tabindex="0">
+
+                <div class="row g-4">
+                    @for (category of Food.dishes; track $index) {
+                    <div class="col-md-4 col-sm-6 col-lg-3">
+                        <div class="card py-3 text-center shadow h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-capitalize">{{ category }}</h5>
+                                <i [class]="getIcon(category) + ' fa-2x mb-3 text-success'"></i>
+                                <p class="text-muted">{{ category }} items</p>
+                                <a class="btn btn-outline-success btn-sm"
+                                    [routerLink]="['/specificFood', category]">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="pills-Meats" role="tabpanel" aria-labelledby="pills-Meats-tab" tabindex="0">
+                <div class="row g-4">
+                    @for (category of Food.meats; track $index) {
+                    <div class="col-md-4 col-sm-6 col-lg-3">
+                        <div class="card py-3 text-center shadow h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-capitalize">{{ category }}</h5>
+                                <i [class]="getIcon(category) + ' fa-2x mb-3 text-success'"></i>
+                                <p class="text-muted">{{ category }} items</p>
+                                <a class="btn btn-outline-success btn-sm"
+                                    [routerLink]="['/specificFood', category]">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

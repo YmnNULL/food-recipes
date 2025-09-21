@@ -1,0 +1,12 @@
+<div class="card h-100">
+    <img [src]="data.image_url" class="card-img-top fixed-img" [alt]="data.title">
+    <div class="card-body text-center">
+        <h5 class="card-title">{{data.title}}</h5>
+        <p> Rating : {{data.social_rank | number:'1.1-1'}} / 100</p>
+        <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" [routerLink]="['/specialDish', data.recipe_id]">See
+                Data</button>
+            <a [href]="data.source_url" target="_blank" class="btn btn-outline-info">Source Page</a>
+        </div>
+    </div>
+</div>

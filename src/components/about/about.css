@@ -1,0 +1,79 @@
+.hero {
+    background: linear-gradient(to right, #007bff, #6610f2);
+}
+
+.mission-vision .card {
+    flex: 1;
+    min-width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.mission-vision .card:hover {
+    transform: translateY(-5px);
+}
+
+
+.value-box {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.value-box:hover {
+    transform: scale(1.05);
+}
+
+.timeline {
+    position: relative;
+    margin-left: 20px;
+    border-left: 3px solid #007bff;
+    padding-left: 20px;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: #007bff;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px;
+    top: 5px;
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    margin: 10px 0 5px;
+}
+
+.team-member p {
+    color: #666;
+}
+
+.cta {
+    background: linear-gradient(to right, #6610f2, #007bff);
+}
+
+
+.cta .btn {
+    background: #fff;
+    color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.cta .btn:hover {
+    background: #007bff;
+    color: #fff;
+}

@@ -1,0 +1,174 @@
+<div class="container">
+    <div class="row min-vh-100">
+        <div class="col-sm-4 overflow-auto py-3 ps-0 border-end">
+            <div class="accordion" id="foodAccordion">
+
+                <!-- Vegetables -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-vegetables">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-vegetables" aria-expanded="false"
+                            aria-controls="collapse-vegetables">
+                            Vegetables
+                        </button>
+                    </h2>
+                    <div id="collapse-vegetables" class="accordion-collapse collapse">
+                        <div class="accordion-body py-2">
+                            <ul class="list-unstyled ms-3 mb-0">
+                                @for (item of Food.vegetables; track $index) {
+                                <li>
+                                    <button class="btn btn-link text-start py-1 text-info fs-5 "
+                                        style="text-decoration: none;" (click)="selectItem('vegetables', item)">
+                                        {{ item }}
+                                    </button>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Herbs & Spices -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-herbs">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-herbs" aria-expanded="false" aria-controls="collapse-herbs">
+                            Herbs & Spices
+                        </button>
+                    </h2>
+                    <div id="collapse-herbs" class="accordion-collapse collapse">
+                        <div class="accordion-body p-0">
+                            <ul class="list-unstyled ms-3 mb-0">
+                                @for (item of Food.herbsSpices; track $index) {
+                                <li>
+                                    <button class="btn btn-link text-start py-1 text-info fs-5 "
+                                        style="text-decoration: none;" (click)="selectItem('herbsSpices', item)">
+                                        {{ item }}
+                                    </button>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-legumes">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-legumes" aria-expanded="false" aria-controls="collapse-legumes">
+                            Legumes
+                        </button>
+                    </h2>
+                    <div id="collapse-legumes" class="accordion-collapse collapse">
+                        <div class="accordion-body p-0">
+                            <ul class="list-unstyled ms-3 mb-0">
+                                @for (item of Food.legumes; track $index) {
+                                <li>
+                                    <button class="btn btn-link text-start py-1 text-info fs-5 "
+                                        style="text-decoration: none;" (click)="selectItem('legumes', item)">
+                                        {{ item }}
+                                    </button>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-fruits">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-fruits" aria-expanded="false" aria-controls="collapse-fruits">
+                            Fruits
+                        </button>
+                    </h2>
+                    <div id="collapse-fruits" class="accordion-collapse collapse">
+                        <div class="accordion-body p-0">
+                            <ul class="list-unstyled ms-3 mb-0">
+                                @for (item of Food.fruits; track $index) {
+                                <li>
+                                    <button class="btn btn-link text-start py-1 text-info fs-5 "
+                                        style="text-decoration: none;" (click)="selectItem('fruits', item)">
+                                        {{ item }}
+                                    </button>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-dishes">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-dishes" aria-expanded="false" aria-controls="collapse-dishes">
+                            Dishes
+                        </button>
+                    </h2>
+                    <div id="collapse-dishes" class="accordion-collapse collapse">
+                        <div class="accordion-body p-0">
+                            <ul class="list-unstyled ms-3 mb-0">
+                                @for (item of Food.dishes; track $index) {
+                                <li>
+                                    <button class="btn btn-link text-start py-1 text-info fs-5 "
+                                        style="text-decoration: none;" (click)="selectItem('dishes', item)">
+                                        {{ item }}
+                                    </button>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-meats">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-meats" aria-expanded="false" aria-controls="collapse-meats">
+                            Meats
+                        </button>
+                    </h2>
+                    <div id="collapse-meats" class="accordion-collapse collapse">
+                        <div class="accordion-body p-0">
+                            <ul class="list-unstyled ms-3 mb-0">
+                                @for (item of Food.meats; track $index) {
+                                <li>
+                                    <button class="btn btn-link text-start py-1 text-info fs-5 "
+                                        style="text-decoration: none;" (click)="selectItem('meats', item)">
+                                        {{ item }}
+                                    </button>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            @if (selectedItem) {
+            @if(error()){
+            <app-error></app-error>
+            }
+            @else {
+            <app-spinner [show]="hideSpinner"></app-spinner>
+            <h2 class=" text-info text-center fw-bold fst-italic display-3 my-5"> Types of {{selectedItem}}</h2>
+            <div class="row g-4">
+                @for (item of dataOfRecipes(); track $index) {
+                <div class="col-md-6">
+                    <app-card [data]="item"></app-card>
+                </div>
+                }
+            </div>
+            }
+            } @else {
+            <div class="text-center text-muted my-5">
+                <i class="fa-solid fa-utensils fa-4x mb-3 text-secondary"></i>
+                <p class="fs-3">Start by selecting a food category to explore recipes here</p>
+            </div>
+            }
+        </div>
+    </div>
+</div>
