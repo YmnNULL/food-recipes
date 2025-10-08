@@ -17,7 +17,7 @@ export class SpecificFood implements OnInit {
     private activatedRoute = inject(ActivatedRoute);
     private recipes = inject(Recipes);
     name: string | null = "";
-    dataOfRecipes !: Recipe[];
+    dataOfRecipes = signal<Recipe[]>([]);
     hideSpinner: boolean = false;
     error = signal<boolean>(false);
 
@@ -28,7 +28,7 @@ export class SpecificFood implements OnInit {
             this.recipes.getFoodDataByName(this.name).subscribe({
                 next: (res) => {
                     this.hideSpinner = true;
-                    this.dataOfRecipes = res.recipes;
+                    this.dataOfRecipes.set(res.recipes);
                 },
                 error: () => {
                     this.error.set(true);

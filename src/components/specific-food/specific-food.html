@@ -6,7 +6,7 @@
     @else {
     <h2 class=" text-info text-center fw-bold fst-italic display-3 my-5"> Types of {{name}}</h2>
     <div class="row g-4">
-        @for (item of dataOfRecipes; track $index) {
+        @for (item of dataOfRecipes(); track $index) {
         <div class="col-md-6 col-lg-4">
             <app-card [data]="item"></app-card>
         </div>
