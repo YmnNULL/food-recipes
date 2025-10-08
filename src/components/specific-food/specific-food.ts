@@ -27,8 +27,8 @@ export class SpecificFood implements OnInit {
         if (this.name) {
             this.recipes.getFoodDataByName(this.name).subscribe({
                 next: (res) => {
-                    this.dataOfRecipes = res.recipes;
                     this.hideSpinner = true;
+                    this.dataOfRecipes = res.recipes;
                 },
                 error: () => {
                     this.error.set(true);
